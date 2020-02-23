@@ -24,7 +24,7 @@ public class CalssesTest {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         StudentRepository studentRepository =
                 sqlSession.getMapper(StudentRepository.class);
-        Student result = studentRepository.findById(3L);
+        Student result = studentRepository.findById(1);
         System.out.println(result);
         sqlSession.commit();
         sqlSession.close();
