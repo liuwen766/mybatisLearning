@@ -16,16 +16,12 @@ import java.util.List;
 public class AccountTest2 {
 
         public static void main(String[] args) {
-            InputStream inputStream =
-                    AccountTest2.class.getClassLoader().getResourceAsStream("config.xml");
-            SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new
-                    SqlSessionFactoryBuilder();
-            SqlSessionFactory sqlSessionFactory =
-                    sqlSessionFactoryBuilder.build(inputStream);
+            InputStream inputStream = AccountTest2.class.getClassLoader().getResourceAsStream("config.xml");
+            SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+            SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
             SqlSession sqlSession = sqlSessionFactory.openSession();
 //获取实现接⼝口的代理理对象
-            AccountRepository accountRepository =
-                    sqlSession.getMapper(AccountRepository.class);
+            AccountRepository accountRepository = sqlSession.getMapper(AccountRepository.class);
 //添加对象
 // Account account = new Account(0,"王五","111111",24);
 // int result = accountRepository.save(account);
