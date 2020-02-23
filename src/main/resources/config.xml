@@ -20,5 +20,6 @@
     <!-- 注册AccountMapper.xml -->
     <mappers>
         <mapper resource="com/liuwen/mapper/AccountMapper.xml"></mapper>
+        <mapper resource="com/liuwen/repository/AccountRepository.xml"></mapper>
     </mappers>
 </configuration>
