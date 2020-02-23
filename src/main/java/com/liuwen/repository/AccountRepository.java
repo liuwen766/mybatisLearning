@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @Description:   通过mapper代理实现自定义接口
-  * @param null
+  * @param
  * @return
  * @date 20.2.23 13:10
  */
@@ -16,5 +16,5 @@ public interface AccountRepository {
     public int deleteById(long id);
     public List<Account> findAll();
     public Account findById(long id);
-
+    public Account findByAccount(Account account);
 }

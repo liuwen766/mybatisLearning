@@ -19,4 +19,93 @@ select * from t_account
             resultType="com.liuwen.entity.Account">
 select * from t_account where id = #{id}
 </select>
+<!--动态sql-->
+    <!--if与where-->
+    <!--<select id="findByAccount" parameterType="com.liuwen.entity.Account"-->
+            <!--resultType="com.liuwen.entity.Account">-->
+        <!--select * from t_account-->
+        <!--<where>-->
+        <!--<if test="id!=0">-->
+            <!--id = #{id}-->
+        <!--</if>-->
+        <!--<if test="username!=null">-->
+            <!--and username = #{username}-->
+        <!--</if>-->
+        <!--<if test="password!=null">-->
+            <!--and password = #{password}-->
+        <!--</if>-->
+        <!--<if test="age!=0">-->
+            <!--and age = #{age}-->
+        <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+<!--choose 、when 标签-->
+    <select id="findByAccount" parameterType="com.liuwen.entity.Account"
+            resultType="com.liuwen.entity.Account">
+        select * from t_account
+        <where>
+            <choose>
+                <when test="id!=0">
+                    id = #{id}
+                </when>
+                <when test="username!=null">
+                    username = #{username}
+                </when>
+                <when test="password!=null">
+                    password = #{password}
+                </when>
+                <when test="age!=0">
+                    age = #{age}
+                </when>
+            </choose>
+        </where>
+    </select>
+<!--trim标签可以起到与if组合where是一样的功能-->
+    <!--<select id="findByAccount" parameterType="com.liuwen.entity.Account"-->
+            <!--resultType="com.liuwen.entity.Account">-->
+        <!--select * from t_account-->
+        <!--<trim prefix="where" prefixOverrides="and">-->
+            <!--<if test="id!=0">-->
+                <!--id = #{id}-->
+            <!--</if>-->
+            <!--<if test="username!=null">-->
+                <!--and username = #{username}-->
+            <!--</if>-->
+            <!--<if test="password!=null">-->
+                <!--and password = #{password}-->
+            <!--</if>-->
+            <!--<if test="age!=0">-->
+                <!--and age = #{age}-->
+            <!--</if>-->
+        <!--</trim>-->
+    <!--</select>-->
+
+    <!--set语句-->
+    <!--<update id="update" parameterType="com.liuwen.entity.Account">-->
+        <!--update t_account-->
+        <!--<set>-->
+            <!--<if test="username!=null">-->
+                <!--username = #{username},-->
+            <!--</if>-->
+            <!--<if test="password!=null">-->
+                <!--password = #{password},-->
+            <!--</if>-->
+            <!--<if test="age!=0">-->
+                <!--age = #{age}-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where id = #{id}-->
+    <!--</update>-->
+<!--foreach-->
+    <!--<select id="findByIds" parameterType="com.southwind.entity.Account"-->
+            <!--resultType="com.southwind.entity.Account">-->
+        <!--select * from t_account-->
+        <!--<where>-->
+            <!--<foreach collection="ids" open="id in (" close=")" item="id"-->
+                     <!--separator=",">-->
+                <!--#{id}-->
+            <!--</foreach>-->
+        <!--</where>-->
+    <!--</select>-->
+
 </mapper>
