@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liuwen.repository.AccountRepository">
+    <cache></cache>
     <insert id="save" parameterType="com.liuwen.entity.Account">
 insert into t_account(username,password,age) values(#{username},#{password},#{age})
 </insert>

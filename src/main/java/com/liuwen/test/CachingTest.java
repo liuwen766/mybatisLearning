@@ -27,7 +27,7 @@ public class CachingTest {
         System.out.println(account1);
         sqlSession.close();
 
-        //重新打开一个sqlsession，则重新查询
+        //重新打开一个sqlsession，则重新查询（若打开二级缓存，则仍然仅查询一次）
         SqlSession sqlSession2 = sqlSessionFactory.openSession();
         AccountRepository accountRepository2 = sqlSession2.getMapper(AccountRepository.class);
         Account account2 = accountRepository2.findById(2);
