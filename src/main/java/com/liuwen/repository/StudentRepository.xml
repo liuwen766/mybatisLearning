@@ -11,6 +11,18 @@
         </association>
     </resultMap>
     <select id="findById" parameterType="long" resultMap="studentMap">
-select s.id,s.name,c.id as cid,c.name as cname from student s,classes c where s.id = #{id} and s.cid = c.id
-</select>
+        select s.id,s.name,c.id as cid,c.name as cname from student s,classes c where s.id = #{id} and s.cid = c.id
+    </select>
+    <!--懒加载-->
+    <resultMap id="studentMapLazy" type="com.liuwen.entity.Student">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <association property="classes" javaType="com.liuwen.entity.Classes"
+                     select="com.liuwen.repository.ClassesRepository.findByIdLazy" column="cid">
+        </association>
+    </resultMap>
+    <select id="findByIdLazy" parameterType="long" resultMap="studentMapLazy">
+        select * from student where id = #{id}
+    </select>
+
 </mapper>
