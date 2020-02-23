@@ -21,5 +21,7 @@
     <mappers>
         <mapper resource="com/liuwen/mapper/AccountMapper.xml"></mapper>
         <mapper resource="com/liuwen/repository/AccountRepository.xml"></mapper>
+        <mapper resource="com/liuwen/repository/StudentRepository.xml"></mapper>
+        <mapper resource="com/liuwen/repository/ClassesRepository.xml"></mapper>
     </mappers>
 </configuration>
