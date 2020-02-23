@@ -13,6 +13,7 @@ import java.io.InputStream;
  **/
 public class AccountTest {
        public static void main(String[] args){
+           //原生接口实现mybtis
            InputStream inputStream = AccountTest.class.getClassLoader().getResourceAsStream("config.xml");
            SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
            SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
